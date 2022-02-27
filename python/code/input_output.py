@@ -39,10 +39,16 @@ for i in list_to_save:
     f.write(str(i) + '\n') ## Add a new line at the end
 
 f.close()
+# see whether writen
+f = open("../sandbox/testout.txt", 'r')
+for i in f:
+    print(i)
+f.close()
 
 # saving objects (binary files)
-my_dictionary = {'a key': 10, 'another key': 11}
 import pickle
+
+my_dictionary = {'a key': 10, 'another key': 11}
 f = open('../sandbox/testp.p', 'wb') # w means write, b means accept the binary files
 pickle.dump(my_dictionary, f)
 f.close()
@@ -51,7 +57,6 @@ f.close()
 f = open('../sandbox/testp.p', 'rb')
 another_dictionary = pickle.load(f)
 f.close()
-
 print(another_dictionary)   
 
 
